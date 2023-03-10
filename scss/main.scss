@@ -1,0 +1,125 @@
+@import '_global.scss';
+
+.header {
+   position: relative;
+   height: 31rem;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
+   &__bg {
+      position: absolute;
+      height: inherit;
+      z-index: -1;
+   }
+
+   &__title {
+      color: #fff;
+      font-size: 3.3rem;
+      letter-spacing: 1px;
+      margin-top: 3.8rem;
+      margin-bottom: 4.5rem;
+      font-weight: 500;
+   }
+
+   &__form {
+      display: flex;
+
+      & input {
+         width: 55rem;
+         font-size: 2rem;
+         font-weight: 400;
+         padding-left: 2.2rem;
+         border-top-left-radius: 15px;
+         border-bottom-left-radius: 15px;
+         cursor: pointer;
+
+         &:focus {
+            outline: none;
+            color: $very-dark-gray;
+         }
+      }
+
+      & button {
+         width: 58px;
+         height: 58px;
+         background-color: $very-dark-gray;
+         border-top-right-radius: 15px;
+         border-bottom-right-radius: 15px;
+         transform: translate(-2px);
+         cursor: pointer;
+      }
+   }
+
+   &__info {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 50%);
+      padding: 4rem;
+      display: flex;
+      background-color: #fff;
+      border-radius: 15px;
+      z-index: 10;
+
+      &-item {
+         width: 20rem;
+         box-sizing: content-box;
+
+         & h3 {
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            color: $dark-gray;
+            margin-bottom: 1.5rem;
+         }
+
+         & p {
+            font-size: 2.8rem;
+            font-weight: 700;
+         }
+
+         @media only screen and (min-width: 56.25em) {
+            &:not(:last-child) {
+               padding-right: 7rem;
+               border-right: 1px solid $dark-gray;
+            }
+
+            &:not(:first-child) {
+               padding-left: 4rem;
+            }
+         }
+      }
+   }
+}
+
+#map {
+   height: calc(100vh - 31rem);
+   z-index: -1;
+}
+
+@media only screen and (max-width: 56.25em) {
+   .header {
+      height: 42rem;
+
+      &__form {
+         & input {
+            width: 37rem;
+         }
+      }
+
+      &__info {
+         flex-direction: column;
+         gap: 3.2rem;
+         transform: translate(-50%, 55%);
+         text-align: center;
+
+         &-item {
+            width: 37rem;
+         }
+      }
+   }
+
+   #map {
+      height: calc(100vh - 42rem);
+   }
+}
